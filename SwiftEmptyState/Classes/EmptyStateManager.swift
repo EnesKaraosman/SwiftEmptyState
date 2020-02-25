@@ -103,7 +103,7 @@ extension EmptyStateManager {
         /// For spring animation type
         public var springDamping: CGFloat = 0.7
         public var initialVelocity: CGFloat = 0.2
-        public var options: UIViewAnimationOptions = .curveEaseIn
+        public var options: UIView.AnimationOptions = .curveEaseIn
         public init() { }
     }
     

@@ -17,19 +17,16 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = 'You all faced success/error state, but how you behave in empty states?'
 
   s.homepage         = 'https://github.com/eneskaraosman/SwiftEmptyState'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'eneskaraosman' => 'enes.karaosman@etiya.com' }
   s.source           = { :git => 'https://github.com/eneskaraosman/SwiftEmptyState.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
-
+  s.ios.deployment_target = '9.3'
+  s.swift_version = '5'
   s.source_files = 'SwiftEmptyState/Classes/**/*'
   
   # s.resource_bundles = {
@@ -37,6 +34,5 @@ TODO: Add long description of the pod here.
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'UIKit'
 end
