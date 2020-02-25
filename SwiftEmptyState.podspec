@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/eneskaraosman/SwiftEmptyState'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'eneskaraosman' => 'enes.karaosman@etiya.com' }
+  s.author           = { 'eneskaraosman' => 'eneskaraosman53@gmail.com' }
   s.source           = { :git => 'https://github.com/eneskaraosman/SwiftEmptyState.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.3'
