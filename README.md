@@ -22,7 +22,7 @@ pod 'SwiftEmptyState'
 
 ## Author
 
-eneskaraosman, enes.karaosman@etiya.com
+eneskaraosman, eneskaraosman53@gmail.com
 
 ## License
 
