@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SwiftEmptyState_Example' do
+  pod 'SwiftEmptyState', :path => '../'
+
+  target 'SwiftEmptyState_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
