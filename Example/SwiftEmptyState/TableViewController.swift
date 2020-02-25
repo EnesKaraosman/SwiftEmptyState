@@ -23,12 +23,16 @@ class TableViewController: UITableViewController {
             print("Empty view in TableView, button action")
         }
         
-        let m = EmptyStateManager.init(containerView: self.view, emptyView: emptyView)
-        // Optional
-        m.hasContent = {
+        let manager = EmptyStateManager.init(
+            containerView: self.view,
+            emptyView: emptyView,
+            animationConfiguration: .init(animationType: .spring)
+        )
+        // Optional, recognized from UITableView
+        manager.hasContent = {
             self.dataSource.count > 0
         }
-        return m
+        return manager
     }()
     
     var dataSource = (1...50).map { _ in UIColor.random } {

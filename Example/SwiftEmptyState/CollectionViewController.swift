@@ -21,8 +21,8 @@ class CollectionViewController: UICollectionViewController {
             print("Empty view in CollectionView, button action")
             emptyView.descriptionLabel.text = "CHANGED VIA BUTTON ACTION"
         }
-        let m = EmptyStateManager.init(containerView: self.collectionView!, emptyView: emptyView)
-        return m
+        let manager = EmptyStateManager.init(containerView: self.collectionView!, emptyView: emptyView)
+        return manager
     }()
     
     var dataSource = (1...50).map { _ in UIColor.random } {
@@ -35,7 +35,6 @@ class CollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.emptyStateManager.delegate = self
         self.emptyStateManager.reloadState()
         
         self.collectionView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -63,8 +62,6 @@ class CollectionViewController: UICollectionViewController {
     }
 
 }
-
-extension CollectionViewController: EmptyStateManagerDelegate { }
 
 extension CollectionViewController: SampleController {
     

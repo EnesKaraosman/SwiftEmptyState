@@ -1,33 +1,15 @@
 
 import UIKit
 
-public protocol EmptyStateViewProtocol: class {
-    func hasContent() -> Bool
-    func loadEmptyView()
-    func reloadEmptyViewState()
-//    var containerView: UIView { get }
-//    var emptyStateView: UIView { get }
-}
-
-public protocol EmptyStateManagerDelegate: class {
-    
-}
-
-public extension EmptyStateManagerDelegate where Self: UIViewController {
-    
-}
-
 public class EmptyStateManager {
     
     var containerView: UIView
     private var emptyView: UIView
-    public weak var delegate: EmptyStateManagerDelegate?
     
     // MARK: - Animation properties
     
+    /// Configure animation or use as is (default value)
     public var animationConfiguration = AnimationConfiguration()
-    
-    private var animationType = AnimationType.fromBottom
     
     private var itemsToAnimate: [UIView] {
         return emptyView.subviews
@@ -41,8 +23,7 @@ public class EmptyStateManager {
         AnimationType.spring     : CGAffineTransform(scaleX: 0.3, y: 0.3)
     ]
     
-    /////////
-    
+    /// To let manager know when to show/hide EmptyStateView
     public lazy var hasContent: (() -> Bool) = {
         if let cv = self.containerView as? UICollectionView {
             return cv.totalRowsCount > 0
@@ -64,7 +45,6 @@ public class EmptyStateManager {
             if emptyView.isDescendant(of: containerView) {
                 DispatchQueue.main.async {
                     self.emptyView.removeFromSuperview()
-//                    self.delegate?.disconnect(vc: self.emptyStateViewController)
                 }
             }
             return
@@ -77,8 +57,6 @@ public class EmptyStateManager {
     func loadEmptyView() {
         DispatchQueue.main.async {
 
-//            self.delegate?.connect(vc: self.emptyStateViewController)
-            
             self.containerView.addSubview(self.emptyView)
             self.animate()
             
@@ -96,15 +74,29 @@ public class EmptyStateManager {
 extension EmptyStateManager {
     
     public struct AnimationConfiguration {
-        public var animationType: AnimationType = .fromBottom
-        public var animationDuration: TimeInterval = 0.7
-        /// Specific for spring animation type, handles subview item's appearance
-        public var delayConstant: Double = 0.15
+        let animationType: AnimationType
+        let animationDuration: TimeInterval
+        /// Specific for .fromRight, .fromLeft, .fromTop, .fromBottom animation type, handles subview item's delaying
+        let subItemDelayConstant: Double
         /// For spring animation type
-        public var springDamping: CGFloat = 0.7
-        public var initialVelocity: CGFloat = 0.2
-        public var options: UIView.AnimationOptions = .curveEaseIn
-        public init() { }
+        let springDamping: CGFloat
+        let initialVelocity: CGFloat
+        let options: UIView.AnimationOptions
+        public init(
+            animationType: AnimationType = .fromBottom,
+            animationDuration: TimeInterval = 0.7,
+            delayConstant: Double = 0.15,
+            springDamping: CGFloat = 0.7,
+            initialVelocity: CGFloat = 0.2,
+            options: UIView.AnimationOptions = .curveEaseIn
+        ) {
+            self.animationType = animationType
+            self.animationDuration = animationDuration
+            self.subItemDelayConstant = delayConstant
+            self.springDamping = springDamping
+            self.initialVelocity = initialVelocity
+            self.options = options
+        }
     }
     
     public enum AnimationType {
@@ -116,11 +108,13 @@ extension EmptyStateManager {
     }
     
     private func prepareAnimation() {
-        switch animationType {
+        switch self.animationConfiguration.animationType {
         case .spring:
             self.emptyView.transform = self.animationDict[.spring]!
+            self.emptyView.alpha = 0
         default:
             self.itemsToAnimate.forEach {
+                let animationType = self.animationConfiguration.animationType
                 $0.transform = self.animationDict[animationType]!
             }
         }
@@ -131,16 +125,17 @@ extension EmptyStateManager {
         // Scale down, decrease alpha etc.
         prepareAnimation()
         
-        switch self.animationType {
+        switch self.animationConfiguration.animationType {
         case .spring:
             UIView.animate(
                 withDuration: self.animationConfiguration.animationDuration,
-                delay: 0.3,
+                delay: 0.2,
                 usingSpringWithDamping: self.animationConfiguration.springDamping,
                 initialSpringVelocity: self.animationConfiguration.initialVelocity,
                 options: self.animationConfiguration.options,
                 animations: {
                     self.emptyView.transform = .identity
+                    self.emptyView.alpha = 1
                 },
                 completion: completion
             )
@@ -148,15 +143,15 @@ extension EmptyStateManager {
             
             var temp = itemsToAnimate
             
-            if self.animationType == .fromTop {
+            if self.animationConfiguration.animationType == .fromTop {
                 temp.reverse()
             }
             
             for (index, item) in temp.enumerated() {
                 
                 UIView.animate(
-                    withDuration: 0.7,
-                    delay: Double(index) * self.animationConfiguration.delayConstant,
+                    withDuration: self.animationConfiguration.animationDuration,
+                    delay: Double(index) * self.animationConfiguration.subItemDelayConstant,
                     usingSpringWithDamping: 1,
                     initialSpringVelocity: self.animationConfiguration.initialVelocity,
                     options: self.animationConfiguration.options,
