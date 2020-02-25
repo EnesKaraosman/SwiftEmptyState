@@ -1,0 +1,22 @@
+{
+  "name": "SwiftEmptyState",
+  "version": "0.1.0",
+  "summary": "A short description of SwiftEmptyState.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/eneskaraosman/SwiftEmptyState",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "eneskaraosman": "enes.karaosman@etiya.com"
+  },
+  "source": {
+    "git": "https://github.com/eneskaraosman/SwiftEmptyState.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "SwiftEmptyState/Classes/**/*"
+}

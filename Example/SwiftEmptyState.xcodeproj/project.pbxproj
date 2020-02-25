@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
-		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		7D195B850422CCE00B52FA7D /* Pods_SwiftEmptyState_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B3E5869A052AF6F0BF74CAD /* Pods_SwiftEmptyState_Tests.framework */; };
 		C864B0F5BC5530B492FF6DD6 /* Pods_SwiftEmptyState_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F44D76CDC5492AECBBDE14 /* Pods_SwiftEmptyState_Example.framework */; };
+		F44B9B8E24050EB800B0C36E /* HostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B9B8A24050EB800B0C36E /* HostController.swift */; };
+		F44B9B8F24050EB800B0C36E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B9B8B24050EB800B0C36E /* CollectionViewController.swift */; };
+		F44B9B9024050EB800B0C36E /* SampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B9B8C24050EB800B0C36E /* SampleController.swift */; };
+		F44B9B9124050EB800B0C36E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B9B8D24050EB800B0C36E /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,13 +30,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1C3E2227549399BB252A3EF4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		1C3E2227549399BB252A3EF4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		2E73AB3E56DF780B2FD730B2 /* Pods-SwiftEmptyState_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftEmptyState_Tests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftEmptyState_Tests/Pods-SwiftEmptyState_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SwiftEmptyState_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftEmptyState_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* SwiftEmptyState_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftEmptyState_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,9 +44,13 @@
 		89AD71B044E26EFE0B122EC3 /* Pods-SwiftEmptyState_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftEmptyState_Example.release.xcconfig"; path = "Target Support Files/Pods-SwiftEmptyState_Example/Pods-SwiftEmptyState_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8B3E5869A052AF6F0BF74CAD /* Pods_SwiftEmptyState_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftEmptyState_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99601E10D937AD084603B65C /* Pods-SwiftEmptyState_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftEmptyState_Tests.release.xcconfig"; path = "Target Support Files/Pods-SwiftEmptyState_Tests/Pods-SwiftEmptyState_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		C3A2053D6FCA3E16A2D1D6FD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		C4C16AEE170C7C748737A2BB /* SwiftEmptyState.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = SwiftEmptyState.podspec; path = ../SwiftEmptyState.podspec; sourceTree = "<group>"; };
+		C3A2053D6FCA3E16A2D1D6FD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		C4C16AEE170C7C748737A2BB /* SwiftEmptyState.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftEmptyState.podspec; path = ../SwiftEmptyState.podspec; sourceTree = "<group>"; };
 		D9EC2CB4EBA4EDB930B4F281 /* Pods-SwiftEmptyState_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftEmptyState_Example.debug.xcconfig"; path = "Target Support Files/Pods-SwiftEmptyState_Example/Pods-SwiftEmptyState_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		F44B9B8A24050EB800B0C36E /* HostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostController.swift; sourceTree = "<group>"; };
+		F44B9B8B24050EB800B0C36E /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		F44B9B8C24050EB800B0C36E /* SampleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleController.swift; sourceTree = "<group>"; };
+		F44B9B8D24050EB800B0C36E /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +98,10 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				F44B9B8A24050EB800B0C36E /* HostController.swift */,
+				F44B9B8B24050EB800B0C36E /* CollectionViewController.swift */,
+				F44B9B8C24050EB800B0C36E /* SampleController.swift */,
+				F44B9B8D24050EB800B0C36E /* TableViewController.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -147,7 +153,6 @@
 				2E73AB3E56DF780B2FD730B2 /* Pods-SwiftEmptyState_Tests.debug.xcconfig */,
 				99601E10D937AD084603B65C /* Pods-SwiftEmptyState_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -213,10 +218,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = L9DND36YTU;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = L9DND36YTU;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -227,6 +234,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -246,7 +254,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -331,8 +338,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				F44B9B8F24050EB800B0C36E /* CollectionViewController.swift in Sources */,
+				F44B9B9124050EB800B0C36E /* TableViewController.swift in Sources */,
+				F44B9B8E24050EB800B0C36E /* HostController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				F44B9B9024050EB800B0C36E /* SampleController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,14 +365,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				607FACDA1AFB9204008FA782 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -478,6 +480,7 @@
 			baseConfigurationReference = D9EC2CB4EBA4EDB930B4F281 /* Pods-SwiftEmptyState_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = L9DND36YTU;
 				INFOPLIST_FILE = SwiftEmptyState/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -493,6 +496,7 @@
 			baseConfigurationReference = 89AD71B044E26EFE0B122EC3 /* Pods-SwiftEmptyState_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = L9DND36YTU;
 				INFOPLIST_FILE = SwiftEmptyState/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -507,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E73AB3E56DF780B2FD730B2 /* Pods-SwiftEmptyState_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = L9DND36YTU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -529,6 +534,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 99601E10D937AD084603B65C /* Pods-SwiftEmptyState_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = L9DND36YTU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",

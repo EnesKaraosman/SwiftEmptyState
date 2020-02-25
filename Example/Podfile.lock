@@ -1,0 +1,16 @@
+PODS:
+  - SwiftEmptyState (0.1.0)
+
+DEPENDENCIES:
+  - SwiftEmptyState (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftEmptyState:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwiftEmptyState: 27d13366cfb1618fbb509489a41af0988d4c587b
+
+PODFILE CHECKSUM: 1226d50f9a75ff90e0cd410f94701bcf31a621a3
+
+COCOAPODS: 1.8.4
