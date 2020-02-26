@@ -15,14 +15,13 @@ class TableViewController: UITableViewController {
     
     lazy var emptyStateManager: EmptyStateManager = {
         
-        let ev = EmptyStateView(frame: self.tableView.frame)
-        ev.setup(
+        let ev = EmptyStateView(
             messageText: "Table VIEW",
             titleText: "Table view description",
             image: #imageLiteral(resourceName: "icon_404"),
             buttonText: nil,
 //            buttonText: "CV Demo Button",
-            completionHandler: nil
+            centerYOffset: -40
         )
         
         let manager = EmptyStateManager.init(
@@ -30,10 +29,6 @@ class TableViewController: UITableViewController {
             emptyView: ev,
             animationConfiguration: .init(animationType: .spring)
         )
-        // Optional, recognized from UITableView
-        manager.hasContent = {
-            self.dataSource.count > 0
-        }
         return manager
     }()
     
@@ -46,7 +41,7 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+
         self.view.backgroundColor = #colorLiteral(red: 0.7533465844, green: 0.9165241449, blue: 0.9036050066, alpha: 1)
         
         tableView.register(

@@ -13,7 +13,7 @@ public class EmptyStateView: UIView, IEmptyStateView {
         return stackViewContainer.arrangedSubviews
     }
 
-    public var completionHandler: (() -> Void)?
+    private var centerYOffset: CGFloat = 0
     
     public var buttonAction: ((UIButton) -> Void)?
 
@@ -106,19 +106,19 @@ public class EmptyStateView: UIView, IEmptyStateView {
         titleText: String? = nil,
         image: UIImage? = nil,
         buttonText: String? =  nil,
-        completionHandler: (() -> Void)? = nil
+        centerYOffset: CGFloat = 0
         ) {
         super.init(frame: CGRect.zero)
-        setup(messageText: messageText, titleText: titleText, image: image, buttonText: buttonText, completionHandler: completionHandler)
+        setup(messageText: messageText, titleText: titleText, image: image, buttonText: buttonText, centerYOffset: centerYOffset)
         setupUI()
     }
     
-    public func setup(messageText: String, titleText: String?, image: UIImage?, buttonText: String?, completionHandler: (() -> Void)?) {
+    public func setup(messageText: String, titleText: String?, image: UIImage?, buttonText: String?, centerYOffset: CGFloat) {
         self.messageText = messageText
         self.titleText = titleText
         self.image = image
         self.buttonText = buttonText
-        self.completionHandler = completionHandler
+        self.centerYOffset = centerYOffset
         self.messageLabel.sizeToFit()
         self.titleLabel.sizeToFit()
     }
@@ -137,11 +137,12 @@ public class EmptyStateView: UIView, IEmptyStateView {
 
         self.stackViewContainer.snp.makeConstraints {
             $0.left.right.equalToSuperview().inset(8)
-            $0.center.equalToSuperview()
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview().offset(self.centerYOffset)
         }
         
         self.imageContainer.snp.makeConstraints {
-            $0.height.equalTo(120)
+            $0.height.equalTo(self.image != nil ? 120 : 0)
         }
         
         self.imageView.snp.makeConstraints {

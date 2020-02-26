@@ -19,10 +19,13 @@ class CollectionViewController: UICollectionViewController {
         ev.setup(
             messageText: "COLLECTION VIEW",
             titleText: "Collection view description",
-            image: #imageLiteral(resourceName: "icon_404"),
+            image:nil, // #imageLiteral(resourceName: "icon_404"),
             buttonText: "CV Demo Button",
-            completionHandler: nil
+            centerYOffset: -20
         )
+        ev.buttonAction = { _ in
+            ev.messageText = "Button action works 👍🏻"
+        }
         
         let manager = EmptyStateManager.init(containerView: self.collectionView!, emptyView: ev)
         return manager
