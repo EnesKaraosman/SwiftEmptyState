@@ -9,7 +9,7 @@
 import UIKit
 import SwiftEmptyState
 
-extension UIView {
+extension UIView { // SnapKit
     var safeArea: ConstraintAttributesDSL {
         if #available(iOS 11.0, *) {
             return self.safeAreaLayoutGuide.snp

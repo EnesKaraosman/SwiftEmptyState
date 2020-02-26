@@ -19,8 +19,7 @@ class CollectionViewController: UICollectionViewController {
             messageText: "This is label belongs to empty state view that sits in UICollectionViewController's UICollectionView",
             titleText: "Empty State Title",
             image: nil, // #imageLiteral(resourceName: "icon_404"),
-            buttonText: "CV Demo Button",
-            centerYOffset: -30 // Due to tabbarController
+            buttonText: "CV Demo Button"
         )
         esv.buttonAction = { _ in
             esv.messageText = "Button action works 👍🏻"

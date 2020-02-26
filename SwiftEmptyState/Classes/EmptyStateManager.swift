@@ -55,11 +55,11 @@ public class EmptyStateManager {
         DispatchQueue.main.async {
 
             self.containerView.addSubview(self.emptyView)
-            
-            // We avoid setting this constraint, because TableView & CollectionView is in a ScrollView
-            // So it breaks, but to exactly fit in UIView we need this.
-            if self.containerView.isMember(of: UIView.self) {
-                self.emptyView.snp.makeConstraints { $0.edges.equalToSuperview() }
+            self.emptyView.snp.makeConstraints {
+                $0.left.equalTo(self.containerView.safeArea.left)
+                $0.right.equalTo(self.containerView.safeArea.right)
+                $0.top.equalTo(self.containerView.safeArea.top)
+                $0.bottom.equalTo(self.containerView.safeArea.bottom)
             }
             
             if let tableView = self.containerView as? UITableView {

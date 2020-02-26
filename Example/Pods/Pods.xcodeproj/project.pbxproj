@@ -56,6 +56,7 @@
 		F44B9B8724050E0E00B0C36E /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B9B5E24050E0E00B0C36E /* UICollectionView+Extension.swift */; };
 		F44B9B8824050E0E00B0C36E /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B9B5F24050E0E00B0C36E /* UITableView+Extension.swift */; };
 		F44B9B8924050E0E00B0C36E /* EmptyStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B9B6024050E0E00B0C36E /* EmptyStateManager.swift */; };
+		F44B9B9524069BCC00B0C36E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B9B9424069BCC00B0C36E /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		F44B9B5E24050E0E00B0C36E /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		F44B9B5F24050E0E00B0C36E /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		F44B9B6024050E0E00B0C36E /* EmptyStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyStateManager.swift; path = SwiftEmptyState/Classes/EmptyStateManager.swift; sourceTree = "<group>"; };
+		F44B9B9424069BCC00B0C36E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		F46F5433717BBECF3077921EF1332281 /* SwiftEmptyState.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = SwiftEmptyState.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		FA57769809481F0472AD36052F0359C0 /* Pods-SwiftEmptyState_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftEmptyState_Example-dummy.m"; sourceTree = "<group>"; };
 		FC0E8CDAED52554B3DC0B828B2702C1C /* SwiftEmptyState-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftEmptyState-umbrella.h"; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				F44B9B5D24050E0E00B0C36E /* UIColor+Extension.swift */,
 				F44B9B5E24050E0E00B0C36E /* UICollectionView+Extension.swift */,
 				F44B9B5F24050E0E00B0C36E /* UITableView+Extension.swift */,
+				F44B9B9424069BCC00B0C36E /* UIView+Extension.swift */,
 			);
 			name = Extensions;
 			path = SwiftEmptyState/Classes/Extensions;
@@ -549,6 +552,7 @@
 				F44B9B6624050E0E00B0C36E /* ConstraintDescription.swift in Sources */,
 				F44B9B8224050E0E00B0C36E /* LayoutConstraint.swift in Sources */,
 				F44B9B8424050E0E00B0C36E /* ConstraintLayoutSupportDSL.swift in Sources */,
+				F44B9B9524069BCC00B0C36E /* UIView+Extension.swift in Sources */,
 				F44B9B7124050E0E00B0C36E /* ConstraintConfig.swift in Sources */,
 				F44B9B6924050E0E00B0C36E /* ConstraintViewDSL.swift in Sources */,
 				F44B9B8724050E0E00B0C36E /* UICollectionView+Extension.swift in Sources */,

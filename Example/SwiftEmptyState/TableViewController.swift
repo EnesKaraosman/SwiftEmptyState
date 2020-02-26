@@ -19,8 +19,7 @@ class TableViewController: UITableViewController {
             messageText: "This is label belongs to empty state view that sits in UITableViewController's UITableView",
             titleText: "Empty State Title",
             image: #imageLiteral(resourceName: "icon_404"),
-            buttonText: nil,
-            centerYOffset: -40
+            buttonText: nil
         )
         
         let manager = EmptyStateManager.init(
