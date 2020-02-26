@@ -22,7 +22,7 @@ class TableViewController: UITableViewController {
             buttonText: nil
         )
         
-        let manager = EmptyStateManager.init(
+        let manager = EmptyStateManager(
             containerView: self.tableView,
             emptyView: ev,
             animationConfiguration: .init(animationType: .spring)

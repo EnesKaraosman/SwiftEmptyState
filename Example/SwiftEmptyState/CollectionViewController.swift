@@ -25,7 +25,7 @@ class CollectionViewController: UICollectionViewController {
             esv.messageText = "Button action works 👍🏻"
         }
         
-        let manager = EmptyStateManager.init(containerView: self.collectionView!, emptyView: esv)
+        let manager = EmptyStateManager(containerView: self.collectionView!, emptyView: esv)
         return manager
     }()
     

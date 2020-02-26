@@ -41,7 +41,12 @@ public class EmptyStateManager {
         if hasContent() {
             if emptyView.isDescendant(of: containerView) {
                 DispatchQueue.main.async {
-                    self.emptyView.removeFromSuperview()
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.emptyView.transform = self.animationDict[.spring]!
+                        self.emptyView.alpha = 0
+                    }, completion: { (_) in
+                        self.emptyView.removeFromSuperview()
+                    })
                 }
             }
             return
@@ -111,6 +116,11 @@ extension EmptyStateManager {
         case spring
     }
     
+    private func flushEmptyViewAnimationState() {
+        self.emptyView.transform = .identity
+        self.emptyView.alpha = 1
+    }
+    
     private func prepareAnimation() {
         switch self.animationConfiguration.animationType {
         case .spring:
@@ -138,8 +148,7 @@ extension EmptyStateManager {
                 initialSpringVelocity: self.animationConfiguration.initialVelocity,
                 options: self.animationConfiguration.options,
                 animations: {
-                    self.emptyView.transform = .identity
-                    self.emptyView.alpha = 1
+                    self.flushEmptyViewAnimationState()
                 },
                 completion: completion
             )
@@ -151,6 +160,7 @@ extension EmptyStateManager {
                 temp.reverse()
             }
             
+            self.flushEmptyViewAnimationState()
             for (index, item) in temp.enumerated() {
                 
                 UIView.animate(

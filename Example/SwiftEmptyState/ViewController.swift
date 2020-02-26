@@ -35,7 +35,7 @@ class ViewController: UIViewController {
             image: #imageLiteral(resourceName: "icon_404")
         )
         
-        let manager = EmptyStateManager.init(
+        let manager = EmptyStateManager(
             containerView: self.containerView,
             emptyView: esv,
             animationConfiguration: .init(animationType: .fromLeft)
