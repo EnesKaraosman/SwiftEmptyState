@@ -16,16 +16,15 @@ class TableViewController: UITableViewController {
     lazy var emptyStateManager: EmptyStateManager = {
         
         let ev = EmptyStateView(
-            messageText: "Table VIEW",
-            titleText: "Table view description",
+            messageText: "This is label belongs to empty state view that sits in UITableViewController's UITableView",
+            titleText: "Empty State Title",
             image: #imageLiteral(resourceName: "icon_404"),
             buttonText: nil,
-//            buttonText: "CV Demo Button",
             centerYOffset: -40
         )
         
         let manager = EmptyStateManager.init(
-            containerView: self.view,
+            containerView: self.tableView,
             emptyView: ev,
             animationConfiguration: .init(animationType: .spring)
         )
@@ -48,8 +47,6 @@ class TableViewController: UITableViewController {
             UITableViewCell.self,
             forCellReuseIdentifier: reuseIdentifier
         )
-
-        emptyStateManager.reloadState()
         
         // Add Bar Buttons
         setEnableEmptyStateBarButton()

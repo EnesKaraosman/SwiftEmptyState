@@ -83,14 +83,14 @@ extension EmptyStateManager {
         public init(
             animationType: AnimationType = .fromBottom,
             animationDuration: TimeInterval = 0.7,
-            delayConstant: Double = 0.15,
+            subItemDelayConstant: Double = 0.1,
             springDamping: CGFloat = 0.7,
             initialVelocity: CGFloat = 0.2,
             options: UIView.AnimationOptions = .curveEaseIn
         ) {
             self.animationType = animationType
             self.animationDuration = animationDuration
-            self.subItemDelayConstant = delayConstant
+            self.subItemDelayConstant = subItemDelayConstant
             self.springDamping = springDamping
             self.initialVelocity = initialVelocity
             self.options = options
@@ -127,7 +127,7 @@ extension EmptyStateManager {
         case .spring:
             UIView.animate(
                 withDuration: self.animationConfiguration.animationDuration,
-                delay: 0.2,
+                delay: 0.1,
                 usingSpringWithDamping: self.animationConfiguration.springDamping,
                 initialSpringVelocity: self.animationConfiguration.initialVelocity,
                 options: self.animationConfiguration.options,

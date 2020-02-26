@@ -107,7 +107,7 @@ public class EmptyStateView: UIView, IEmptyStateView {
         image: UIImage? = nil,
         buttonText: String? =  nil,
         centerYOffset: CGFloat = 0
-        ) {
+    ) {
         super.init(frame: CGRect.zero)
         setup(messageText: messageText, titleText: titleText, image: image, buttonText: buttonText, centerYOffset: centerYOffset)
         setupUI()

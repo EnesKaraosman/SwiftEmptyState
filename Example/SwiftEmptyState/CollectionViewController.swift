@@ -15,19 +15,18 @@ class CollectionViewController: UICollectionViewController {
     
     lazy var emptyStateManager: EmptyStateManager = {
         
-        let ev = EmptyStateView(frame: self.collectionView!.frame)
-        ev.setup(
-            messageText: "COLLECTION VIEW",
-            titleText: "Collection view description",
-            image:nil, // #imageLiteral(resourceName: "icon_404"),
+        let esv = EmptyStateView(
+            messageText: "This is label belongs to empty state view that sits in UICollectionViewController's UICollectionView",
+            titleText: "Empty State Title",
+            image: nil, // #imageLiteral(resourceName: "icon_404"),
             buttonText: "CV Demo Button",
-            centerYOffset: -20
+            centerYOffset: -30 // Due to tabbarController
         )
-        ev.buttonAction = { _ in
-            ev.messageText = "Button action works 👍🏻"
+        esv.buttonAction = { _ in
+            esv.messageText = "Button action works 👍🏻"
         }
         
-        let manager = EmptyStateManager.init(containerView: self.collectionView!, emptyView: ev)
+        let manager = EmptyStateManager.init(containerView: self.collectionView!, emptyView: esv)
         return manager
     }()
     
@@ -40,8 +39,6 @@ class CollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.emptyStateManager.reloadState()
         
         self.collectionView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
