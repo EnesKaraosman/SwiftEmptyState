@@ -18,6 +18,7 @@
 		F44B9B9024050EB800B0C36E /* SampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B9B8C24050EB800B0C36E /* SampleController.swift */; };
 		F44B9B9124050EB800B0C36E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B9B8D24050EB800B0C36E /* TableViewController.swift */; };
 		F44B9B93240698BC00B0C36E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B9B92240698BC00B0C36E /* ViewController.swift */; };
+		F44B9B972406A87E00B0C36E /* emptyStateDemo.gif in Resources */ = {isa = PBXBuildFile; fileRef = F44B9B962406A87E00B0C36E /* emptyStateDemo.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		F44B9B8C24050EB800B0C36E /* SampleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleController.swift; sourceTree = "<group>"; };
 		F44B9B8D24050EB800B0C36E /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		F44B9B92240698BC00B0C36E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F44B9B962406A87E00B0C36E /* emptyStateDemo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = emptyStateDemo.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F44B9B962406A87E00B0C36E /* emptyStateDemo.gif */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				F44B9B972406A87E00B0C36E /* emptyStateDemo.gif in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
