@@ -19,9 +19,11 @@ Don't left user with a blank screen, or boring alerts.
 
 For better understanding, please view Example project.
 
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
 But here below the main concept.
 
-Usable in any UITableViewController, UICollectionViewController and UIViewController
+Usable in any `UITableViewController`, `UICollectionViewController` and `UIViewController`
 
 
 ```swift
@@ -31,14 +33,17 @@ class TableViewController: UITableViewController {
     lazy var emptyStateManager: EmptyStateManager = {
         
         let esv = EmptyStateView(
-            messageText: "Table VIEW",
-            titleText: "Table view description",
+            messageText: "This is label belongs to empty state view that sits in UITableViewController's UITableView",
+            titleText: "EmptyState Title",
             image: UIImage(named: "empty_state_image"),
-            buttonText: nil,
-            centerYOffset: -40
+            buttonText: "Button",
+            centerYOffset: -100 // In case you want to move it to top, by default it is centered (offset = 0)
         )
+        esv.buttonAction = { _ in
+            esv.messageText = "Button action works 👍🏻"
+        }
         
-        let manager = EmptyStateManager.init(
+        let manager = EmptyStateManager(
             containerView: self.tableView,
             emptyView: esv,
             animationConfiguration: .init(animationType: .spring)
@@ -57,11 +62,20 @@ class TableViewController: UITableViewController {
 }
 ```
 
-Same example valid for UICollectionView contentView
+Same example valid for UICollectionView contentView, <br/>
+If your content view is subclass of `ICollectionView/UITableView` <br/>
+manager knows whether it hasContent, but in case you use pure UIView as contentView <br/>
+then make sure you set hasContent manually.
+
+```swift
+manager.hasContent = {
+    !self.dataSource.isEmpty
+}
+```
 
 ## Animation
 
-EmptyStateManager has animationConfiguration parameter with default values.
+`EmptyStateManager` has animationConfiguration parameter with default values.
 
 ```swift
 struct AnimationConfiguration {
@@ -82,7 +96,8 @@ let manager = EmptyStateManager(
 
 ## Customization
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+If you want to make your custom EmptyStateView <br/>
+Just implement `IEmptyStateView` protocol in your custom UIView class.
 
 ## Requirements
 
