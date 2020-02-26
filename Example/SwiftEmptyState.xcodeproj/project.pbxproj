@@ -17,6 +17,7 @@
 		F44B9B8F24050EB800B0C36E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B9B8B24050EB800B0C36E /* CollectionViewController.swift */; };
 		F44B9B9024050EB800B0C36E /* SampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B9B8C24050EB800B0C36E /* SampleController.swift */; };
 		F44B9B9124050EB800B0C36E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B9B8D24050EB800B0C36E /* TableViewController.swift */; };
+		F44B9B93240698BC00B0C36E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B9B92240698BC00B0C36E /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		F44B9B8B24050EB800B0C36E /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		F44B9B8C24050EB800B0C36E /* SampleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleController.swift; sourceTree = "<group>"; };
 		F44B9B8D24050EB800B0C36E /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		F44B9B92240698BC00B0C36E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				F44B9B8A24050EB800B0C36E /* HostController.swift */,
 				F44B9B8B24050EB800B0C36E /* CollectionViewController.swift */,
 				F44B9B8D24050EB800B0C36E /* TableViewController.swift */,
+				F44B9B92240698BC00B0C36E /* ViewController.swift */,
 				F44B9B8C24050EB800B0C36E /* SampleController.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -338,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F44B9B93240698BC00B0C36E /* ViewController.swift in Sources */,
 				F44B9B8F24050EB800B0C36E /* CollectionViewController.swift in Sources */,
 				F44B9B9124050EB800B0C36E /* TableViewController.swift in Sources */,
 				F44B9B8E24050EB800B0C36E /* HostController.swift in Sources */,

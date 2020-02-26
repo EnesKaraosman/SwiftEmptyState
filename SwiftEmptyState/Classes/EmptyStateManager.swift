@@ -56,6 +56,12 @@ public class EmptyStateManager {
 
             self.containerView.addSubview(self.emptyView)
             
+            // We avoid setting this constraint, because TableView & CollectionView is in a ScrollView
+            // So it breaks, but to exactly fit in UIView we need this.
+            if self.containerView.isMember(of: UIView.self) {
+                self.emptyView.snp.makeConstraints { $0.edges.equalToSuperview() }
+            }
+            
             if let tableView = self.containerView as? UITableView {
                 if tableView.tableFooterView == nil {
                     tableView.tableFooterView = UIView()
