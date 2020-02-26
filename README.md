@@ -5,6 +5,9 @@
 [![License](https://img.shields.io/cocoapods/l/SwiftEmptyState.svg?style=flat)](https://cocoapods.org/pods/SwiftEmptyState)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftEmptyState.svg?style=flat)](https://cocoapods.org/pods/SwiftEmptyState)
 
+## Demo
+![](https://github.com/EnesKaraosman/SwiftEmptyState/blob/master/Example/SwiftEmptyState/emptyStateDemo.gif)
+
 ## Why do I need?
 
 Common usage case;
