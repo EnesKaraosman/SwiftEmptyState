@@ -14,18 +14,20 @@ class TableViewController: UITableViewController {
     private let reuseIdentifier = "tv.cell"
     
     lazy var emptyStateManager: EmptyStateManager = {
-        let emptyView = EmptyStateView(frame: self.view.frame)
-        // Avoid setting background, due to TableView's default contentInset
-        // Instead set .clear color & set container view's background
-        emptyView.titleLabel?.text = "TABLE VIEW"
-        emptyView.imageView?.image = #imageLiteral(resourceName: "icon_404")
-        emptyView.buttonAction = { btn in
-            print("Empty view in TableView, button action")
-        }
+        
+        let ev = EmptyStateView(frame: self.tableView.frame)
+        ev.setup(
+            messageText: "Table VIEW",
+            titleText: "Table view description",
+            image: #imageLiteral(resourceName: "icon_404"),
+            buttonText: nil,
+//            buttonText: "CV Demo Button",
+            completionHandler: nil
+        )
         
         let manager = EmptyStateManager.init(
             containerView: self.view,
-            emptyView: emptyView,
+            emptyView: ev,
             animationConfiguration: .init(animationType: .spring)
         )
         // Optional, recognized from UITableView

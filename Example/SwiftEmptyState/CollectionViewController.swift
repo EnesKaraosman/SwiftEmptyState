@@ -14,14 +14,17 @@ class CollectionViewController: UICollectionViewController {
     private let reuseIdentifier = "cv.cell"
     
     lazy var emptyStateManager: EmptyStateManager = {
-        let emptyView = EmptyStateView(frame: self.collectionView!.frame)
-        emptyView.titleLabel?.text = "COLLECTION VIEW"
-        emptyView.imageView?.image = #imageLiteral(resourceName: "icon_404")
-        emptyView.buttonAction = { btn in
-            print("Empty view in CollectionView, button action")
-            emptyView.descriptionLabel.text = "CHANGED VIA BUTTON ACTION"
-        }
-        let manager = EmptyStateManager.init(containerView: self.collectionView!, emptyView: emptyView)
+        
+        let ev = EmptyStateView(frame: self.collectionView!.frame)
+        ev.setup(
+            messageText: "COLLECTION VIEW",
+            titleText: "Collection view description",
+            image: #imageLiteral(resourceName: "icon_404"),
+            buttonText: "CV Demo Button",
+            completionHandler: nil
+        )
+        
+        let manager = EmptyStateManager.init(containerView: self.collectionView!, emptyView: ev)
         return manager
     }()
     

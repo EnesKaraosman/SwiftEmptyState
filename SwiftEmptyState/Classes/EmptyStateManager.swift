@@ -4,16 +4,12 @@ import UIKit
 public class EmptyStateManager {
     
     var containerView: UIView
-    private var emptyView: UIView
+    private var emptyView: IEmptyStateView
     
     // MARK: - Animation properties
     
     /// Configure animation or use as is (default value)
     public var animationConfiguration = AnimationConfiguration()
-    
-    private var itemsToAnimate: [UIView] {
-        return emptyView.subviews
-    }
     
     private let animationDict: [AnimationType: CGAffineTransform] = [
         AnimationType.fromBottom : CGAffineTransform(translationX: 0, y: 1200),
@@ -34,10 +30,11 @@ public class EmptyStateManager {
         return false
     }
 
-    public init(containerView: UIView, emptyView: UIView, animationConfiguration: AnimationConfiguration = .init()) {
+    public init(containerView: UIView, emptyView: IEmptyStateView, animationConfiguration: AnimationConfiguration = .init()) {
         self.containerView = containerView
         self.emptyView = emptyView
         self.animationConfiguration = animationConfiguration
+        self.emptyView.frame = self.containerView.frame
     }
     
     public func reloadState() {
@@ -58,13 +55,14 @@ public class EmptyStateManager {
         DispatchQueue.main.async {
 
             self.containerView.addSubview(self.emptyView)
-            self.animate()
             
             if let tableView = self.containerView as? UITableView {
                 if tableView.tableFooterView == nil {
                     tableView.tableFooterView = UIView()
                 }
             }
+            
+            self.animate()
         }
     }
     
@@ -113,7 +111,7 @@ extension EmptyStateManager {
             self.emptyView.transform = self.animationDict[.spring]!
             self.emptyView.alpha = 0
         default:
-            self.itemsToAnimate.forEach {
+            self.emptyView.itemsToAnimate.forEach {
                 let animationType = self.animationConfiguration.animationType
                 $0.transform = self.animationDict[animationType]!
             }
@@ -141,7 +139,7 @@ extension EmptyStateManager {
             )
         default:
             
-            var temp = itemsToAnimate
+            var temp = self.emptyView.itemsToAnimate
             
             if self.animationConfiguration.animationType == .fromTop {
                 temp.reverse()

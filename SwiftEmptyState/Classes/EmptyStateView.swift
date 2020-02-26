@@ -8,45 +8,19 @@
 import UIKit
 
 public class EmptyStateView: UIView, IEmptyStateView {
+    
+    public var itemsToAnimate: [UIView] {
+        return stackViewContainer.arrangedSubviews
+    }
 
-    private let spacing = 16
+    public var completionHandler: (() -> Void)?
     
     public var buttonAction: ((UIButton) -> Void)?
-    
-    public lazy var imageView: UIImageView? = {
-        let iv = UIImageView()
-        iv.contentMode = .scaleAspectFit
-        iv.image = UIImage(named: "icon_no_content") // placeholder
-        return iv
-    }()
-    
-    public lazy var titleLabel: UILabel? = {
-        let lbl = UILabel()
-        lbl.text = "Title Label"
-        lbl.font = self.titleFont
-        lbl.textAlignment = .center
-        return lbl
-    }()
-    
-    public lazy var descriptionLabel: UILabel = {
-        let lbl = UILabel()
-        lbl.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        lbl.font = self.descriptionFont
-        lbl.textAlignment = .center
-        lbl.numberOfLines = 0
-        lbl.lineBreakMode = .byWordWrapping
-        lbl.textColor = #colorLiteral(red: 0.4258198728, green: 0.4906104731, blue: 0.5, alpha: 1)
-        return lbl
-    }()
-    
-    public lazy var button: UIButton? = {
+
+    public lazy var button: UIButton = {
         let btn = UIButton()
-        btn.setTitle("BUTTON", for: .normal)
         btn.setTitleColor(#colorLiteral(red: 0.206512084, green: 0.5339240219, blue: 1, alpha: 1), for: .normal)
         btn.addTarget(self, action: #selector(_buttonAction(sender:)), for: .touchUpInside)
-        btn.layer.borderColor = #colorLiteral(red: 0.206512084, green: 0.5339240219, blue: 1, alpha: 1)
-        btn.layer.borderWidth = 2
-        btn.layer.cornerRadius = 20
         return btn
     }()
 
@@ -54,62 +28,125 @@ public class EmptyStateView: UIView, IEmptyStateView {
         self.buttonAction?(sender)
     }
     
-    public override init(frame: CGRect) {
+    public var image: UIImage? {
+        didSet {
+            self.imageView.image = self.image
+        }
+    }
+    
+    public var titleText: String? {
+        didSet {
+            titleLabel.text = titleText
+        }
+    }
+    
+    public var messageText: String? {
+        didSet {
+            messageLabel.text = messageText
+        }
+    }
+    
+    public var buttonText: String? {
+        didSet {
+            button.setTitle(buttonText, for: .normal)
+        }
+    }
+    
+    public lazy var imageView: UIImageView = {
+        let iv = UIImageView()
+        iv.contentMode = .scaleAspectFit
+        iv.image = self.image
+        return iv
+    }()
+    
+    private lazy var imageContainer: UIView = {
+        let v = UIView()
+        v.addSubview(imageView)
+        return v
+    }()
+    
+    private lazy var stackViewContainer: UIStackView = {
+        let sv = UIStackView(arrangedSubviews: [imageContainer, titleLabel, messageLabel, button])
+        sv.spacing = 16
+        sv.distribution = .fill
+        sv.axis = .vertical
+        sv.alignment = .center
+        return sv
+    }()
+    
+    private lazy var mainContainer: UIView = {
+        let v = UIView()
+        v.addSubview(stackViewContainer)
+        v.backgroundColor = .clear
+        return v
+    }()
+    
+    public lazy var titleLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.font = self.titleFont
+        return lbl
+    }()
+    
+    public lazy var messageLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.font = self.messageFont
+        lbl.numberOfLines = 0
+        lbl.lineBreakMode = .byWordWrapping
+        lbl.textAlignment = .center
+        return lbl
+    }()
+    
+    override public init(frame: CGRect) {
         super.init(frame: frame)
-        print(frame)
-        self.commonInit()
+        setupUI()
     }
     
-    public required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        self.commonInit()
+    public init(
+        messageText: String,
+        titleText: String? = nil,
+        image: UIImage? = nil,
+        buttonText: String? =  nil,
+        completionHandler: (() -> Void)? = nil
+        ) {
+        super.init(frame: CGRect.zero)
+        setup(messageText: messageText, titleText: titleText, image: image, buttonText: buttonText, completionHandler: completionHandler)
+        setupUI()
     }
     
-    func commonInit() {
+    public func setup(messageText: String, titleText: String?, image: UIImage?, buttonText: String?, completionHandler: (() -> Void)?) {
+        self.messageText = messageText
+        self.titleText = titleText
+        self.image = image
+        self.buttonText = buttonText
+        self.completionHandler = completionHandler
+        self.messageLabel.sizeToFit()
+        self.titleLabel.sizeToFit()
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    func setupUI() {
         
-        // Optional UI Element
-        if let _imageView = imageView {
-            self.addSubview(_imageView)
-            
-            _imageView.snp.makeConstraints {
-                $0.centerX.equalToSuperview()
-                $0.centerY.equalTo(self.frame.height * 0.25)
-                $0.height.equalTo(120)
-            }
+        self.addSubview(mainContainer)
+        
+        self.mainContainer.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+
+        self.stackViewContainer.snp.makeConstraints {
+            $0.left.right.equalToSuperview().inset(8)
+            $0.center.equalToSuperview()
         }
         
-        // Optional UI Element
-        if let _titleLabel = titleLabel {
-            self.addSubview(_titleLabel)
-            
-            _titleLabel.snp.makeConstraints {
-                $0.centerX.equalToSuperview()
-                $0.width.equalToSuperview().inset(spacing)
-                $0.height.equalTo(40)
-                $0.top.equalTo(self.imageView?.snp.bottom ?? self.frame.height * 0.35).offset(spacing)
-            }
+        self.imageContainer.snp.makeConstraints {
+            $0.height.equalTo(120)
         }
         
-        self.addSubview(descriptionLabel)
-        descriptionLabel.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.width.equalToSuperview().inset(spacing)
-            $0.top.equalTo(self.titleLabel?.snp.bottom ?? self.frame.height * 0.4).offset(spacing)
-        }
-        
-        // Optional UI Element
-        if let _button = button {
-            self.addSubview(_button)
-        
-            _button.snp.makeConstraints {
-                $0.centerX.equalToSuperview()
-                $0.width.equalToSuperview().multipliedBy(0.6)
-                $0.height.equalTo(40)
-                $0.top.equalTo(self.descriptionLabel.snp.bottom).offset(spacing)
-            }
-            
+        self.imageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
         
     }
-    
 }

@@ -8,12 +8,13 @@
 import UIKit
 
 public protocol IEmptyStateView where Self: UIView {
-    var imageView: UIImageView? { get set }
-    var titleLabel: UILabel? { get set }
+    var imageView: UIImageView { get set }
+    var titleLabel: UILabel { get set }
     var titleFont: UIFont { get }
-    var descriptionLabel: UILabel { get set }
-    var descriptionFont: UIFont { get }
-    var button: UIButton? { get set }
+    var messageLabel: UILabel { get set }
+    var messageFont: UIFont { get }
+    var itemsToAnimate: [UIView] { get }
+    var button: UIButton { get set }
     var buttonAction: ((UIButton) -> Void)? { get set }
 }
 
@@ -23,7 +24,7 @@ public extension IEmptyStateView {
         return UIFont.systemFont(ofSize: 21, weight: .semibold)
     }
     
-    var descriptionFont: UIFont {
+    var messageFont: UIFont {
         return UIFont.systemFont(ofSize: 17, weight: .regular)
     }
     
