@@ -16,7 +16,7 @@ Common usage case;
 Image you're getting data from a backend, your request succeded but it is just an empty list.
 Don't left user with a blank screen, or boring alerts.
 
-**Blog link will come here..**
+[Display Empty State - Medium Blog](https://medium.com/mobiletech/display-empty-state-of-a-page-in-ios-aa2430ac7d58)
 
 ## Usage
 
