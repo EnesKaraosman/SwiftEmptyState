@@ -103,6 +103,8 @@ If you want to make your custom EmptyStateView <br/>
 Just implement `IEmptyStateView` protocol in your custom UIView class.
 
 ## Requirements
+iOS 10+
+Swift 5+
 
 ## Installation
 
@@ -112,6 +114,9 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'SwiftEmptyState'
 ```
+
+Package Manager
+Add new package from repository link: https://github.com/EnesKaraosman/SwiftEmptyState.git
 
 ## Author
 
