@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftEmptyState'
-  s.version          = '0.1.6'
+  s.version          = '0.1.7'
   s.summary          = 'Display empty state in iOS'
 
 # This description is used to generate tags and improve search results.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.author           = { 'eneskaraosman' => 'eneskaraosman53@gmail.com' }
   s.source           = { :git => 'https://github.com/eneskaraosman/SwiftEmptyState.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '9.3'
+  s.ios.deployment_target = '10'
   s.swift_version = '5'
   s.source_files = 'Sources/**/*.swift'
   
@@ -35,4 +35,5 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
+  s.dependency 'SnapKit'
 end

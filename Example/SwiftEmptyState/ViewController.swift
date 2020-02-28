@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftEmptyState
+import SnapKit
 
 extension UIView { // SnapKit
     var safeArea: ConstraintAttributesDSL {

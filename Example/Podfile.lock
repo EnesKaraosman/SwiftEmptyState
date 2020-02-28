@@ -1,15 +1,22 @@
 PODS:
-  - SwiftEmptyState (0.1.6)
+  - SnapKit (4.2.0)
+  - SwiftEmptyState (0.1.7):
+    - SnapKit
 
 DEPENDENCIES:
   - SwiftEmptyState (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
 
 EXTERNAL SOURCES:
   SwiftEmptyState:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SwiftEmptyState: 08e336e88a6f0057b4b22acc6e80a864a40d043b
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SwiftEmptyState: f279053c6c991113d7183f8fade84ff732689131
 
 PODFILE CHECKSUM: 1226d50f9a75ff90e0cd410f94701bcf31a621a3
 
