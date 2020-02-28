@@ -16,6 +16,7 @@
     "tag": "0.1.6"
   },
   "platforms": {
+<<<<<<< HEAD
     "ios": "10"
   },
   "swift_versions": "5",
@@ -26,5 +27,12 @@
 
     ]
   },
+=======
+    "ios": "9.3"
+  },
+  "swift_versions": "5",
+  "source_files": "Sources/**/*.swift",
+  "frameworks": "UIKit",
+>>>>>>> spm
   "swift_version": "5"
 }

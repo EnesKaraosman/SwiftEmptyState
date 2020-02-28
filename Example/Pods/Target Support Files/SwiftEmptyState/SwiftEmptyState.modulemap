@@ -1,6 +1,0 @@
-framework module SwiftEmptyState {
-  umbrella header "SwiftEmptyState-umbrella.h"
-
-  export *
-  module * { export * }
-}
