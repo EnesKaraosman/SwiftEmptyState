@@ -108,6 +108,7 @@ Swift 5+
 
 ## Installation
 
+#### Pod
 SwiftEmptyState is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
@@ -115,7 +116,7 @@ it, simply add the following line to your Podfile:
 pod 'SwiftEmptyState'
 ```
 
-Package Manager
+#### Package Manager
 Add new package from repository link: https://github.com/EnesKaraosman/SwiftEmptyState.git
 
 ## Author
