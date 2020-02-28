@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '9.3'
   s.swift_version = '5'
-  s.source_files = 'SwiftEmptyState/Classes/**/*'
+  s.source_files = 'Sources/**/*.swift'
   
   # s.resource_bundles = {
   #   'SwiftEmptyState' => ['SwiftEmptyState/Assets/*.png']
