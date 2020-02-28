@@ -1,5 +1,6 @@
 
 import UIKit
+import SnapKit
 
 public class EmptyStateManager {
     
