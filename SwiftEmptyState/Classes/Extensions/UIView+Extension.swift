@@ -6,6 +6,7 @@
 //
 
 import class UIKit.UIView
+import SnapKit
 
 extension UIView {
     var safeArea: ConstraintAttributesDSL {
